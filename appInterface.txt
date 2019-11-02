@@ -1,0 +1,255 @@
+http请求头:
+HashMap<String, String> header = new HashMap<>();
+header.put("platformType", "Android");//机器人系统名称
+header.put("mobileType", android.os.Build.MODEL);//机器人厂商信息
+header.put("osVersion", String.valueOf(android.os.Build.VERSION.SDK_INT));//机器人android系统版本
+header.put("softwareVersion", BuildConfig.VERSION_NAME);//app版本号
+
+ConfigBean bean = GlobalConfig.getIBenConfig();
+header.put("appKey", bean.getAppKey());//机器人唯一编号
+header.put("plankType",bean.getPlankType());//机器人type
+
+header.put("requestId", UUID.randomUUID().toString());//请求随机数
+
+
+
+1.异常上传接口，
+类型：可疑人员，紧急制动，失联，运动异常；
+运动异常：避障失败，超出指定区域，定位失败
+可疑人员：可疑人员图片
+
+//post上传json:
+//{"type":"moveException","message":"error message"}；
+//类型type:emergency,outOfContact,moveException，suspiciousPersonnel
+
+//1.1另外需要给可疑人员图片上传接口
+//formData形式上传图片
+
+post上传信息
+formData.put("type", type);//类型type:emergency,outOfContact,moveException，suspiciousPersonnel
+formData.put("message", message);
+formData形式上传图片,文件类型：image
+
+
+
+2.试衣通过商品pub码，获取商品详情，包含图片url+评论标签（试衣通过商品ID获取评论标签）
+
+post上传json:
+["pubTagVale0","pubTagVale1","pubTagVale2"]
+
+app获取得到json:
+{
+	"status": 0,
+	"message": "",
+	"body": [{
+		"id": "1",
+		"name": "服装名称0",
+		"imageUrl": "https://www.myhost.com/path/goods/image/goods1",
+		"color": "颜色",
+		"price": "价格",
+		"goodsTags": [{
+			"id": "1",
+			"name": "name1"
+		}, {
+			"id": "2",
+			"name": "name2"
+		}, {
+			"id": "3",
+			"name": "name3"
+		}]
+	}, {
+		"id": "2",
+		"name": "服装名称1",
+		"imageUrl": "https://www.myhost.com/path/goods/image/goods2",
+		"color": "颜色",
+		"price": "价格",
+		"goodsTags": [{
+			"id": "1",
+			"name": "name1"
+		}, {
+			"id": "2",
+			"name": "name2"
+		}, {
+			"id": "3",
+			"name": "name3"
+		}]
+	}, {
+		"id": "3",
+		"name": "服装名称2",
+		"imageUrl": "https://www.myhost.com/path/goods/image/goods3",
+		"color": "颜色",
+		"price": "价格",
+		"goodsTags": [{
+			"id": "1",
+			"name": "name1"
+		}, {
+			"id": "2",
+			"name": "name2"
+		}, {
+			"id": "3",
+			"name": "name3"
+		}]
+	}]
+}
+
+
+4.试衣通过商品ID上传评价标签+打分
+post上传json:
+[{"goodsId":"goodsId0","mark":5,"evaluates":["id0","id1"]},{"goodsId":"goodsId1","mark":5,"evaluates":["id0","id1"]}]
+
+app获取得到json:
+
+{
+	"status": 0,
+	"message": ""
+}
+
+5.机器人雷达地图
+返回雷达地图图片
+
+6.机器人活动范围一系列坐标数组
+app获取得到json:
+{"status":0,"message":"","body":[{"x":138.9,"y":-2078.3,"z":58},{"x":748.8,"y":4258.0,"z":101},{"x":-8033.5,"y":445.0,"z":324}]}
+
+7.获取场景语音表情配置表
+app获取得到json:
+{"status":0,"message":"","body":[{"id":"scenceId0","name":"场景1","talkings":[{"id":"1","text":"这里是Robot的话术0","voiceUrl1":"https://www.myhost.com/talking/talking_one+0.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+0.mp3","faceCartoonId":"faceCartoonId0"},{"id":"2","text":"这里是Robot的话术1","voiceUrl1":"https://www.myhost.com/talking/talking_one+1.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+1.mp3","faceCartoonId":"faceCartoonId1"},{"id":"3","text":"这里是Robot的话术2","voiceUrl1":"https://www.myhost.com/talking/talking_one+2.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+2.mp3","faceCartoonId":"faceCartoonId2"}]},{"id":"scenceId1","name":"场景1","talkings":[{"id":"1","text":"这里是Robot的话术0","voiceUrl1":"https://www.myhost.com/talking/talking_one+0.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+0.mp3","faceCartoonId":"faceCartoonId0"},{"id":"2","text":"这里是Robot的话术1","voiceUrl1":"https://www.myhost.com/talking/talking_one+1.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+1.mp3","faceCartoonId":"faceCartoonId1"},{"id":"3","text":"这里是Robot的话术2","voiceUrl1":"https://www.myhost.com/talking/talking_one+2.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+2.mp3","faceCartoonId":"faceCartoonId2"}]}]}
+
+8.获取表情配置
+app获取得到json:
+{"status":0,"message":"","body":[{"id":"faceCartoonId0","fileUrl":"https://www.myhost.com/face/faceUrl0.apng"},{"id":"faceCartoonId1","fileUrl":"https://www.myhost.com/face/faceUrl1.apng"},{"id":"faceCartoonId2","fileUrl":"https://www.myhost.com/face/faceUrl2.apng"}]}
+
+网页同原生交互接口
+9.语音搜索，原生端安段录制语音，识别成文字结果告知web,web根据业务是否搜索
+
+app调用h5的js:
+javascript:window.talkSearch('" + text + "')
+
+h5搜索完成调用app的方法：
+window.androidUniqloRobot.completeTalkSearch(boolean success)
+
+
+10.web调用原生接口，告知原生坐标，机器人带路
+用户点击网页要求带路，h5调用app的方法：
+window.androidUniqloRobot.leadWay(float x,float y,float z)
+
+
+11.顾客在机器人端扫RFID，原生端获取商品pub码，并把pub码传给web(或者打开指定的web页面，url参数中包含商品pub码)
+app调用h5的js:
+javascript:window.rfidSearch(String pubTag)
+
+h5展示详情完成调用app的方法：
+window.androidUniqloRobot.completeRfidSearch(boolean success)
+
+
+12.清空购物车接口（原生端调用web js 清空购物车）
+app调用h5的js:
+javascript:window.clearShoppingCart()
+
+
+
+13.语音识别接口
+<1>顾客在搜索页面说：男士牛仔裤
+formdata:
+curPageUrl:"https//www.mywebhost.com/search.html"    //说明：如果当前没有curPageUrl,字段值为""字符
+
+上传文件类型
+type:voice
+上传语音文件
+
+app获取得到json:
+{"status":0,"message":"","body":{"originalHtmlUrl":"https://www.mywebhost.com/search.html","isTransmit2Web":true,"text":"男士牛仔裤"}}
+
+<2>顾客在搜索页面或者任何其他页面说：楼层地图，或者厕所在那个位置
+formdata:
+curPageUrl:""
+
+上传文件类型
+type:voice
+上传语音文件
+
+app获取得到json:
+{"status":0,"message":"","body":{"isTransmit2Web":false,"toOpenHtmlUrl":"https://www.mywebhost.com/floorMap.html","talking":{"id":"1239","text":"这里是响应的话术","voiceUrl1":"https://www.myhost.com/talking/talking_one.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two.mp3","faceCartoonId":"faceCartoonId3"}}}
+
+响应的json格式：
+{
+	"status": 0,
+	"message": "",
+	"body": {
+		"originalHtmlUrl": "https://www.mywebhost.com/search.html",//formdata curPageUrl的值
+		"isTransmit2Web": false,//是否通过调用js传递给web页面
+		"text": "",//响应的文本
+		"toOpenHtmlUrl": "https://www.mywebhost.com/floorMap.html",//打开新的html页面
+		"talking": {//话术+表情ID
+			"id": "1239",
+			"text": "这里是响应的话术",
+			"voiceUrl1": "https://www.myhost.com/talking/talking_one.mp3",
+			"voiceUrl2": "https://www.myhost.com/talking/talking_two.mp3",
+			"faceCartoonId": "faceId3"
+		}
+	}
+}
+
+14.图片识别接口
+上传文件类型
+type:face
+上传图片文件
+
+需要后端：后端识别是否为人脸，如果不是人脸直接返回false，如果是人脸，再检索是否为工作人员，返回人脸属性+是否工作人员结果
+
+app获取得到json:
+{"status":0,"message":"","body":{"isFace":true,"isStaff":false,"sex":false,"age":30,"isWarningPersonnel":true}}
+
+例如识别到异常人员
+{
+	"status": 0,//服务成功
+	"message": "",
+	"body": {
+		"isFace": true,//是人脸
+		"isStaff": false,//非员工
+		"sex": false,//男性
+		"age": 30,//年龄30
+		"isWarningPersonnel": true //为异常人员
+	}
+}
+
+例如识别到非人脸
+{
+	"status": 0,//服务成功
+	"message": "",
+	"body": {
+		"isFace": false,//非人脸
+		"isStaff": false,
+		"sex": false,
+		"age": 0,
+		"isWarningPersonnel": false
+	}
+}
+
+
+15.RFID扫描机器人上传商品雷达地图位置接口
+RFID机器人app post上传json:
+[{
+	"rfids": ["rfid1_1", "rfid1_2"],
+	"position": {
+		"x": 3918.4,
+		"y": -7951.2,
+		"z": 356
+	}
+}, {
+	"rfids": ["rfid2_1", "rfid2_2"],
+	"position": {
+		"x": 4598.3,
+		"y": -7215.1,
+		"z": 278
+	}
+}]
+
+RFID机器人app获取得到json:
+{
+	"status": 0,
+	"message": ""
+}
+
+
+
