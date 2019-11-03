@@ -1,0 +1,26 @@
+网页同原生交互接口
+9.语音搜索，原生端安段录制语音，识别成文字结果告知web,web根据业务是否搜索
+
+app调用h5的js:
+javascript:window.talkSearch('" + text + "')
+
+h5搜索完成调用app的方法：
+window.androidUniqloRobot.completeTalkSearch(boolean success)
+
+
+10.web调用原生接口，告知原生坐标，机器人带路
+用户点击网页要求带路，h5调用app的方法：
+window.androidUniqloRobot.leadWay(float x,float y,float z)
+
+
+11.顾客在机器人端扫RFID，原生端获取商品pub码，并把pub码传给web(或者打开指定的web页面，url参数中包含商品pub码)
+app调用h5的js:
+javascript:window.rfidSearch(String pubTag)
+
+h5展示详情完成调用app的方法：
+window.androidUniqloRobot.completeRfidSearch(boolean success)
+
+
+12.清空购物车接口（原生端调用web js 清空购物车）
+app调用h5的js:
+javascript:window.clearShoppingCart()
