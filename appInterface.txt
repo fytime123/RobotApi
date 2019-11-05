@@ -39,9 +39,9 @@ post上传json:
 
 app获取得到json:
 {
-	"status": 0,
+	"code": 200,
 	"message": "",
-	"body": [{
+	"result": [{
 		"id": "1",
 		"name": "服装名称0",
 		"imageUrl": "https://www.myhost.com/path/goods/image/goods1",
@@ -100,7 +100,7 @@ post上传json:
 app获取得到json:
 
 {
-	"status": 0,
+	"code": 200,
 	"message": ""
 }
 
@@ -109,15 +109,15 @@ app获取得到json:
 
 6.机器人活动范围一系列坐标数组
 app获取得到json:
-{"status":0,"message":"","body":[{"x":138.9,"y":-2078.3,"z":58},{"x":748.8,"y":4258.0,"z":101},{"x":-8033.5,"y":445.0,"z":324}]}
+{"code":200,"message":"","result":[{"id":0,"x":-8192.3,"y":-1603.4,"z":190},{"id":0,"x":-3857.5,"y":-5494.9,"z":246},{"id":0,"x":2319.1,"y":-6027.0,"z":68}]}
 
 7.获取场景语音表情配置表
 app获取得到json:
-{"status":0,"message":"","body":[{"id":"scenceId0","name":"场景1","talkings":[{"id":"1","text":"这里是Robot的话术0","voiceUrl1":"https://www.myhost.com/talking/talking_one+0.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+0.mp3","faceCartoonId":"faceCartoonId0"},{"id":"2","text":"这里是Robot的话术1","voiceUrl1":"https://www.myhost.com/talking/talking_one+1.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+1.mp3","faceCartoonId":"faceCartoonId1"},{"id":"3","text":"这里是Robot的话术2","voiceUrl1":"https://www.myhost.com/talking/talking_one+2.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+2.mp3","faceCartoonId":"faceCartoonId2"}]},{"id":"scenceId1","name":"场景1","talkings":[{"id":"1","text":"这里是Robot的话术0","voiceUrl1":"https://www.myhost.com/talking/talking_one+0.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+0.mp3","faceCartoonId":"faceCartoonId0"},{"id":"2","text":"这里是Robot的话术1","voiceUrl1":"https://www.myhost.com/talking/talking_one+1.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+1.mp3","faceCartoonId":"faceCartoonId1"},{"id":"3","text":"这里是Robot的话术2","voiceUrl1":"https://www.myhost.com/talking/talking_one+2.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+2.mp3","faceCartoonId":"faceCartoonId2"}]}]}
+{"code":200,"message":"","result":[{"id":"scenceId0","name":"场景1","talkings":[{"id":"1","text":"这里是Robot的话术0","voiceUrl1":"https://www.myhost.com/talking/talking_one+0.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+0.mp3","faceCartoonId":"faceCartoonId0"},{"id":"2","text":"这里是Robot的话术1","voiceUrl1":"https://www.myhost.com/talking/talking_one+1.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+1.mp3","faceCartoonId":"faceCartoonId1"},{"id":"3","text":"这里是Robot的话术2","voiceUrl1":"https://www.myhost.com/talking/talking_one+2.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+2.mp3","faceCartoonId":"faceCartoonId2"}]},{"id":"scenceId1","name":"场景1","talkings":[{"id":"1","text":"这里是Robot的话术0","voiceUrl1":"https://www.myhost.com/talking/talking_one+0.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+0.mp3","faceCartoonId":"faceCartoonId0"},{"id":"2","text":"这里是Robot的话术1","voiceUrl1":"https://www.myhost.com/talking/talking_one+1.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+1.mp3","faceCartoonId":"faceCartoonId1"},{"id":"3","text":"这里是Robot的话术2","voiceUrl1":"https://www.myhost.com/talking/talking_one+2.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+2.mp3","faceCartoonId":"faceCartoonId2"}]}]}
 
 8.获取表情配置
 app获取得到json:
-{"status":0,"message":"","body":[{"id":"faceCartoonId0","fileUrl":"https://www.myhost.com/face/faceUrl0.apng"},{"id":"faceCartoonId1","fileUrl":"https://www.myhost.com/face/faceUrl1.apng"},{"id":"faceCartoonId2","fileUrl":"https://www.myhost.com/face/faceUrl2.apng"}]}
+{"code":200,"message":"","result":[{"id":"faceCartoonId0","fileUrl":"https://www.myhost.com/face/faceUrl0.apng"},{"id":"faceCartoonId1","fileUrl":"https://www.myhost.com/face/faceUrl1.apng"},{"id":"faceCartoonId2","fileUrl":"https://www.myhost.com/face/faceUrl2.apng"}]}
 
 
 
@@ -133,7 +133,7 @@ type:voice
 上传语音文件
 
 app获取得到json:
-{"status":0,"message":"","body":{"originalHtmlUrl":"https://www.mywebhost.com/search.html","isTransmit2Web":true,"text":"男士牛仔裤"}}
+{"code":200,"message":"","result":{"originalHtmlUrl":"https://www.mywebhost.com/search.html","isTransmit2Web":true,"text":"男士牛仔裤"}}
 
 <2>顾客在搜索页面或者任何其他页面说：楼层地图，或者厕所在那个位置
 formdata:
@@ -144,13 +144,13 @@ type:voice
 上传语音文件
 
 app获取得到json:
-{"status":0,"message":"","body":{"isTransmit2Web":false,"toOpenHtmlUrl":"https://www.mywebhost.com/floorMap.html","talking":{"id":"1239","text":"这里是响应的话术","voiceUrl1":"https://www.myhost.com/talking/talking_one.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two.mp3","faceCartoonId":"faceCartoonId3"}}}
+{"code":200,"message":"","result":{"isTransmit2Web":false,"toOpenHtmlUrl":"https://www.mywebhost.com/floorMap.html","talking":{"id":"1239","text":"这里是响应的话术","voiceUrl1":"https://www.myhost.com/talking/talking_one.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two.mp3","faceCartoonId":"faceCartoonId3"}}}
 
 响应的json格式：
 {
-	"status": 0,
+	"code": 0,
 	"message": "",
-	"body": {
+	"result": {
 		"originalHtmlUrl": "https://www.mywebhost.com/search.html",//formdata curPageUrl的值
 		"isTransmit2Web": false,//是否通过调用js传递给web页面
 		"text": "",//响应的文本
@@ -173,13 +173,13 @@ type:face
 需要后端：后端识别是否为人脸，如果不是人脸直接返回false，如果是人脸，再检索是否为工作人员，返回人脸属性+是否工作人员结果
 
 app获取得到json:
-{"status":0,"message":"","body":{"isFace":true,"isStaff":false,"sex":false,"age":30,"isWarningPersonnel":true}}
+{"code":200,"message":"","result":{"isFace":true,"isStaff":false,"sex":false,"age":30,"isWarningPersonnel":true}}
 
 例如识别到异常人员
 {
-	"status": 0,//服务成功
+	"code": 200,//服务成功
 	"message": "",
-	"body": {
+	"result": {
 		"isFace": true,//是人脸
 		"isStaff": false,//非员工
 		"sex": false,//男性
@@ -190,9 +190,9 @@ app获取得到json:
 
 例如识别到非人脸
 {
-	"status": 0,//服务成功
+	"code": 200,//服务成功
 	"message": "",
-	"body": {
+	"result": {
 		"isFace": false,//非人脸
 		"isStaff": false,
 		"sex": false,
@@ -222,17 +222,19 @@ RFID机器人app post上传json:
 
 RFID机器人app获取得到json:
 {
-	"status": 0,
+	"code": 200,
 	"message": ""
 }
+
+
 
 15.获取配置时间
 
 响应的json格式：
 {
-	"status": 0,
+	"code": 200,
 	"message": "",
-	"body": {
+	"result": {
 		"mapTime": 1572931234,//地图更新时间
 		"faceCartoonTime": 1572931234,//表情更新时间
 		"sceneTime": 1572931234,//场景话术更新时间
