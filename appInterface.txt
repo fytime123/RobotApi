@@ -226,5 +226,17 @@ RFID机器人app获取得到json:
 	"message": ""
 }
 
+15.获取配置时间
 
+响应的json格式：
+{
+	"status": 0,
+	"message": "",
+	"body": {
+		"mapTime": 1572931234,//地图更新时间
+		"faceCartoonTime": 1572931234,//表情更新时间
+		"sceneTime": 1572931234,//场景话术更新时间
+		"positionTime": 1572931234//巡航路线点更新时间
+	}
+}
 
