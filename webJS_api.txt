@@ -24,3 +24,7 @@ window.androidUniqloRobot.completeRfidSearch(boolean success)
 12.清空购物车接口（原生端调用web js 清空购物车）
 app调用h5的js:
 javascript:window.clearShoppingCart()
+
+
+13。h5获取机器人ID
+window.androidUniqloRobot.getRobotId();//return id;string
