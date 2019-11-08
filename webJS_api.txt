@@ -26,6 +26,8 @@ app调用h5的js:
 javascript:window.clearShoppingCart()
 
 
+13。h5获取机器人ID
+window.androidUniqloRobot.getRobotId();//return id;string
 
 
 网页中需要调用话术的场景
@@ -47,6 +49,3 @@ javascript:window.clearShoppingCart()
 
 
 
-
-13。h5获取机器人ID
-window.androidUniqloRobot.getRobotId();//return id;string
