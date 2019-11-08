@@ -18,12 +18,6 @@ header.put("requestId", UUID.randomUUID().toString());//请求随机数
 运动异常：避障失败，超出指定区域，定位失败
 可疑人员：可疑人员图片
 
-//post上传json:
-//{"type":"moveException","message":"error message"}；
-//类型type:emergency,outOfContact,moveException，suspiciousPersonnel
-
-//1.1另外需要给可疑人员图片上传接口
-//formData形式上传图片
 
 post上传信息
 formData.put("type", type);//类型type:emergency,outOfContact,moveException，suspiciousPersonnel
@@ -228,17 +222,7 @@ RFID机器人app获取得到json:
 
 
 
-15.获取配置时间
-
-响应的json格式：
-{
-	"code": 200,
-	"message": "",
-	"result": {
-		"mapTime": 1572931234,//地图更新时间
-		"faceCartoonTime": 1572931234,//表情更新时间
-		"sceneTime": 1572931234,//场景话术更新时间
-		"positionTime": 1572931234//巡航路线点更新时间
-	}
-}
+16.获取其他话术
+app获取得到json:
+{"code":200,"message":"","result":[{"id":"1","text":"这里是Robot的话术0","voiceUrl1":"https://www.myhost.com/talking/talking_one+0.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+0.mp3","faceCartoonId":"faceCartoonId0"},{"id":"2","text":"这里是Robot的话术1","voiceUrl1":"https://www.myhost.com/talking/talking_one+1.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+1.mp3","faceCartoonId":"faceCartoonId1"},{"id":"3","text":"这里是Robot的话术2","voiceUrl1":"https://www.myhost.com/talking/talking_one+2.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two+2.mp3","faceCartoonId":"faceCartoonId2"}]}
 
