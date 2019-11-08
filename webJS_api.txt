@@ -5,7 +5,7 @@ app调用h5的js:
 javascript:window.talkSearch('" + text + "')
 
 h5搜索完成调用app的方法：
-window.androidUniqloRobot.completeTalkSearch(boolean success)
+window.androidUniqloRobot.sceneTalking(String sceneId);
 
 
 10.web调用原生接口，告知原生坐标，机器人带路
@@ -15,15 +15,37 @@ window.androidUniqloRobot.leadWay(float x,float y,float z)
 
 11.顾客在机器人端扫RFID，原生端获取商品pub码，并把pub码传给web(或者打开指定的web页面，url参数中包含商品pub码)
 app调用h5的js:
-javascript:window.rfidSearch(String pubTag)
+window.androidUniqloRobot.sceneTalking(String sceneId);
 
 h5展示详情完成调用app的方法：
-window.androidUniqloRobot.completeRfidSearch(boolean success)
+window.androidUniqloRobot.sceneTalking(String sceneId);
 
 
 12.清空购物车接口（原生端调用web js 清空购物车）
 app调用h5的js:
 javascript:window.clearShoppingCart()
+
+
+
+
+网页中需要调用话术的场景
+调用方法：window.androidUniqloRobot.sceneTalking(String sceneId);
+一。搜索结果页
+1。通过语音搜索：app调用接口把语音转为文本，通过javascript:window.talkSearch('" + text + "')，告诉H5页面；搜索结果后调用话术的场景window.androidUniqloRobot.sceneTalking(String sceneId);
+2。RFID读取到RFID标签，通过url+标签参数搜索，搜索结果调用场景话术
+3。通过点击“新品推荐”进入搜索结果页，搜索结果调用场景话术
+4。通过点击“优惠商品”进入搜索结果页，搜索结果调用场景话术
+
+二。进入搭配详情页，调用场景话术
+
+三。商品详情页
+1。进入商品详情页，调用场景话术
+2。顾客点击“网上购买”按钮，调用场景话术
+3。顾客点击”店铺购买“按钮，超过10秒没有交互，调用场景话术
+4。顾客点击”带我过去“，调用场景话术
+5。选定的sku在门店库存不足，官网有库存，调用场景话术
+
+
 
 
 13。h5获取机器人ID
