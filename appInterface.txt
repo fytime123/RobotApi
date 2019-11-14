@@ -118,6 +118,7 @@ app获取得到json:
 
 
 13.语音识别接口
+http://aim.applesay.cn/YX/voiceService
 <1>顾客在搜索页面说：男士牛仔裤
 formdata:
 curPageUrl:"https//www.mywebhost.com/search.html"    //说明：如果当前没有curPageUrl,字段值为""字符
@@ -127,7 +128,15 @@ type:voice
 上传语音文件
 
 app获取得到json:
-{"code":200,"message":"","result":{"originalHtmlUrl":"https://www.mywebhost.com/search.html","isTransmit2Web":true,"text":"男士牛仔裤"}}
+{
+	"code": 200,
+	"message": "",
+	"result": {
+		"originalHtmlUrl": "https://www.mywebhost.com/search.html",
+		"isTransmit2Web": true,
+		"text": "男士牛仔裤"
+	}
+}
 
 <2>顾客在搜索页面或者任何其他页面说：楼层地图，或者厕所在那个位置
 formdata:
@@ -138,26 +147,31 @@ type:voice
 上传语音文件
 
 app获取得到json:
-{"code":200,"message":"","result":{"isTransmit2Web":false,"toOpenHtmlUrl":"https://www.mywebhost.com/floorMap.html","talking":{"id":"1239","text":"这里是响应的话术","voiceUrl1":"https://www.myhost.com/talking/talking_one.mp3","voiceUrl2":"https://www.myhost.com/talking/talking_two.mp3","faceCartoonId":"faceCartoonId3"}}}
+{
+	"code": 200,
+	"message": "",
+	"result": {
+		"originalHtmlUrl": "https://www.mywebhost.com/search.html",
+		"isTransmit2Web": false,
+		"text": "请看楼层地图",
+		"toOpenHtmlUrl": "https://www.mywebhost.com/floorMap.html",
+		"talkingId": "123222"
+	}
+}
 
 响应的json格式：
 {
-	"code": 0,
+	"code": 200,
 	"message": "",
 	"result": {
 		"originalHtmlUrl": "https://www.mywebhost.com/search.html",//formdata curPageUrl的值
 		"isTransmit2Web": false,//是否通过调用js传递给web页面
 		"text": "",//响应的文本
 		"toOpenHtmlUrl": "https://www.mywebhost.com/floorMap.html",//打开新的html页面
-		"talking": {//话术+表情ID
-			"id": "1239",
-			"text": "这里是响应的话术",
-			"voiceUrl1": "https://www.myhost.com/talking/talking_one.mp3",
-			"voiceUrl2": "https://www.myhost.com/talking/talking_two.mp3",
-			"faceCartoonId": "faceId3"
-		}
+		"talkingId": "123222" //话术ID
 	}
 }
+
 
 14.图片识别接口
 上传文件类型
